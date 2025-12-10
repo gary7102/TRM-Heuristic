@@ -3,6 +3,28 @@
 This repository is a reproduction and experimental verification of the paper “Less is More: Recursive Reasoning with Tiny Networks” by [Alexia Jolicoeur-Martineau (2025)](https://arxiv.org/abs/2510.04871). This repository is not an official implementation. It is maintained solely for research reproduction. For the official version, please visit [SamsungSAILMontreal/TinyRecursiveModels](https://github.com/SamsungSAILMontreal/TinyRecursiveModels)
 
 ## Experiments
+* Environment setup
+```bash
+python -m venv .venv && source .venv/bin/activate
+
+pip install -U pip wheel setuptools 
+pip install -r requirements.txt
+pip install --no-cache-dir --no-build-isolation adam-atan2 
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+```
+* Download checkpoint and datasets for soduku
+```bash
+pip install -U "huggingface_hub[cli]==0.23.0"
+#download checkpoints for sudoku
+huggingface-cli download Sanjin2024/TinyRecursiveModel-Maze-Hard\
+  --local-dir checkpoints/sudoku_att --exclude ".git*"
+
+# download datasets
+python dataset/build_maze_dataset.py \
+  --output-dir data/maze-30x30-hard-100 \
+  --num-aug 0 \
+  --subsample-size 100
+```
 
 ### Reproduction Results
 
