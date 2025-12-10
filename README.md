@@ -21,7 +21,7 @@ huggingface-cli download Sanjin2024/TinyRecursiveModel-Maze-Hard\
 
 # download datasets
 python dataset/build_maze_dataset.py \
-  --output-dir data/maze-30x30-hard-100 \
+  --output-dir data/maze-30x30-hard-1k \
   --subsample-size 100
 ```
 
