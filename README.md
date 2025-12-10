@@ -15,14 +15,13 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 * Download checkpoint and datasets for soduku
 ```bash
 pip install -U "huggingface_hub[cli]==0.23.0"
-#download checkpoints for sudoku
+# download checkpoints for maze hard 
 huggingface-cli download Sanjin2024/TinyRecursiveModel-Maze-Hard\
-  --local-dir checkpoints/sudoku_att --exclude ".git*"
+  --local-dir checkpoints/Maze-30x30-hard-1k-ACT-torch/pretrain_att_maze30x30 --exclude ".git*"
 
 # download datasets
 python dataset/build_maze_dataset.py \
   --output-dir data/maze-30x30-hard-100 \
-  --num-aug 0 \
   --subsample-size 100
 ```
 
